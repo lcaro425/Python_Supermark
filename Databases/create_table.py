@@ -3,7 +3,7 @@ import sqlite3
 db=sqlite3.DataBase("supermark.db")
  
 #NORMAL USER=1 / SUPERMARKET STOCK USER=0
-db.db.create_table("rol","rolId INTEGER PRIMARY KEY AUTOINCREMENT,"+
+db.create_table("rol","rolId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                         "username TEXT,"+
                         "userDescription TEXT,"+
                         "userStatus INTEGER DEFAULT 1"
