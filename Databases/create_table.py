@@ -17,7 +17,7 @@ db.create_table("client",
                 "userFirstName TEXT,"+
                 "userLastName TEXT,"+
                 "userDNI INTEGER,"+
-                "userBirthday TEXT10),"+
+                "userBirthdate TEXT(10),"+
                 "userPhone TEXT(9)"
                 "userEmail TEXT(50),"+
                 "userRegisterDate TEXT(10),"+
