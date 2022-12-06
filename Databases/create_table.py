@@ -30,7 +30,7 @@ db.create_table("client",
 db.create_table("category",
                 "categoryId INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "categoryName TEXT(100),"+
-                "categoryDescription TEXT(200),"
+                "categoryDescription TEXT(200)"
                 )
 
 db.create_table("market_product",
