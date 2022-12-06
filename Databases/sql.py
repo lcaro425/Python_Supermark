@@ -44,8 +44,6 @@ class DataBase:
     def __str__(self):
         return f"DataBase({self.name})"
 
-if __name__ == '__main__':
-    db = DataBase("supermark.db")
-    db.create_table("")
+
 
     
