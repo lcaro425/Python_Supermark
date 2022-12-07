@@ -1,0 +1,159 @@
+from Databases import sqlite3
+from datetime import date
+
+class client:
+
+    def __init__(self, userId=0, username="",userPass="",userFirstName="",userLastName="",userDNI="",userBirthday="",userPhone="",userEmail="",userRegisterDate="",userStatus=1,userAddress="",userPaymentCard="",rolId=1):
+        self.__userId = userId
+        self.__username = username
+        self.__userPass = userPass
+        self.__userFirstName = userFirstName
+        self.__userLastName = userLastName
+        self.__userDNI = userDNI
+        self.__userBirthday = userBirthday
+        self.__userPhone = userPhone
+        self.__userEmail = userEmail
+        self.__userRegisterDate = userRegisterDate
+        self.__userStatus = userStatus
+        self.__userAddress = userAddress
+        self.__userPaymentCard = userPaymentCard
+        self.__rolId = rolId
+
+@property
+def userId(self):
+    return self.__userId
+
+@userId.setter
+def userId(self,userId):
+    self.__userId=userId
+
+@property
+def username(self):
+    return self.__username
+
+@username.setter
+def username(self,username):
+    self.__username=username
+
+@property
+def userPass(self):
+    return self.__userPass
+
+@userPass.setter
+def userPass(self,userPass):
+    self.__userPass=userPass
+
+@property
+def userFirstName(self):
+    return self.__userFirstName
+
+@userFirstName.setter
+def userFirstName(self,userFirstName):
+    self.__userFirstName=userFirstName
+
+@property
+def userLastName(self):
+    return self.__userLastName
+
+@userLastName.setter
+def userLastName(self,userLastName):
+    self.__userLastName=userLastName
+
+@property
+def userDNI(self):
+    return self.__userDNI
+
+@userDNI.setter
+def userDNI(self,userDNI):
+    self.__userDNI=userDNI
+
+@property
+def userBirthday(self):
+    return self.__userBirthday
+
+@userBirthday.setter
+def userBithday(self,userBirthday):
+    self.__userBirthday=userBirthday
+
+@property
+def userPhone(self):
+    return self.__userPhone
+
+@userPhone.setter
+def userPhone(self,userPhone):
+    self.__userPhone=userPhone
+
+@property
+def userEmail(self):
+    return self.__userEmail
+
+@userEmail.setter
+def userEmail(self,userEmail):
+    self.__userEmail=userEmail
+
+@property
+def userRegisterDate(self):
+    return self.__userRegisterDate
+
+@userRegisterDate.setter
+def userRegisterDate(self,userRegisterDate):
+    self.__userRegisterDate=userRegisterDate
+
+@property
+def userStatus(self):
+    return self.__userStatus
+
+@userStatus.setter
+def userStatus(self,userStatus):
+    self.__userStatus=userStatus
+
+@property
+def userAddress(self):
+    return self.__userAddress
+
+@userAddress.setter
+def userAddress(self,userAddress):
+    self.__userAddress=userAddress
+
+@property
+def userPaymentCard(self):
+    return self.__userPaymentCard
+
+@userPaymentCard.setter
+def userPaymentCard(self,userPaymentCard):
+    self.__userPaymentCard=userPaymentCard
+
+@property
+def rolId(self):
+    return self.__rolId
+
+@rolId.setter
+def rolId(self,rolId):
+    self.__rolId=rolId
+
+def __str__(self):
+    return self.__username + "-" + self.__userFirstName + "-" + self.__userLastName + "-" + "-" + self.__userEmail + "-" + self.__userPass
+
+#TODOS LOS USERS SE CREAN COMO CLIENTES. 
+#DE NECESITARSE UN USER CON PROFILE DE EMPLEADO, SE DEBE CORREGIR POR BASE DE DATOS.
+def addUser(self):
+    self.__username = input("Nombre de Usuario: ")
+    self.__userPass = input("Contraseña: ")
+    self.__userFirstName= input("Nombre: ")
+    self.__userLastName= input("Apellido: ")
+    self.__userDNI= input("DNI: ")
+    self.__userBirthday = input("Fecha de Nacimiento DD-MM-AAAA: ")
+    self.__userPhone = input ("Teléfono/Celular: ")
+    self.__userEmail= input("Email: ")
+    self.__userRegisterDate = date.today()
+    self.__userAddress= input("Dirección: ")
+    self.__userPaymentCard= input("Ingrese N° Tarjeta: ")
+    self.__userStatus=1
+    self.__rolId=1
+    print("---- El usuario será creado como Cliente ----")
+
+#INGRESAR DATOS A LA BD:
+    db.insert("client_table", "username, userPass, userFirstName, userLastName, userDNI, userBirthday, userPhone, userEmail, userRegisterDate, userStatus, userAddress, userPaymentCard, rolId",
+            f"'")
+            #completar con todos los fields que deben guardarse en la db
+    db.close()
