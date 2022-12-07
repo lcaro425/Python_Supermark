@@ -1,4 +1,5 @@
 #DATA BASE CALLS
+
 import sqlite3
 
 class DataBase:
@@ -7,16 +8,19 @@ class DataBase:
         self.connection = sqlite3.connect(self.name)
         self.cursor = self.connection.cursor()
 
-    def create_table(self,table_name,columns):
-        self.cursor.execute(f"CREATE TABLE IF NOT EXISTS {table_name}({columns})")
+    def get_last_id(self):
+        return self.cursor.lastrowid
+
+    def create_table(self, table_name, columns):
+        self.cursor.execute(f"CREATE TABLE IF NOT EXISTS {table_name} ({columns});")
         self.connection.commit()
 
-    def insert(self, table_name,columns,values):
-        self.cursor.execute(f"INSERT INTO {table_name}({columns}) VALUES ({values})")
+    def insert(self, table_name, columns, values):
+        self.cursor.execute(f"INSERT INTO {table_name} ({columns}) VALUES ({values})")
         self.connection.commit()
 
-    def select(self,table_name,columns, condition):
-        self.cursor.execute(f"SELECT {condition} FROM {table_name} WHERE {condition}")
+    def select(self,table_name, columns, condition):
+        self.cursor.execute(f"SELECT {columns} FROM {table_name} WHERE {condition}")
         return self.cursor.fetchall()
 
     def select_all(self,table_name, columns):
@@ -24,7 +28,7 @@ class DataBase:
         return self.cursor.fetchall()
 
     def update(self,table_name,column,value,condition):
-        self.cursor.execute(f"UPDATE{table_name} SET {column} = {value} WHERE {condition}")
+        self.cursor.execute(f"UPDATE {table_name} SET {column} = {value} WHERE {condition}")
         self.connection.commit()
 
     def delete(self,table_name,condition):
