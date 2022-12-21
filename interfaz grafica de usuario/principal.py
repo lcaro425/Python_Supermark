@@ -1,4 +1,4 @@
-importar  tkinter  como  tk
+importa tkinter  como  tk
 de  tkinter  importar  ttk
 desde el cuadro de  mensaje de importación de tkinter  
 
