@@ -1,5 +1,4 @@
-Interfaz
-importar  tkinter  como  tk
+ importar  tkinter  como  tk
 desde  tkinter  import  ttk , cuadro de mensaje
 
 clase  LoginVentana ( tk . Tk ):
