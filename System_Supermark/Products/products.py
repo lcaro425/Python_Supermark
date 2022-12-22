@@ -76,8 +76,25 @@ class Product:
         db.close()
 
     def updateProduct(self,productId):
-    #HACER
-    db.close()
+        db=sqlite3.Databases("supermark.db")
+        print("Si no deea modificar este dato, presione Enter")
+        print("hasta llegar al Dato que SI quiera modificar")
+        market_product_table=db.select("market_product_table","cateogoryId","productName,unitCost,productStock,productDescription",f"productId={productId}")
+        self.__productName= input(f"Modifique el nombre del producto: {market_product_table[0][1]} ") or market_product_table[0][1]
+        self.__unitCost= input(f"Modifique el costo unitario del producto: {market_product_table[0][2]} ") or market_product_table[0][2]
+        self.__productStock= input(f"Modifique el stock del producto: {market_product_table[0][3]} ") or market_product_table[0][3]
+        self.__productDescription= input(f"Modifique la descripción del producto: {market_product_table[0][4]} ") or market_product_table[4][1]
+        category_table=db.select("category_table","categoryId,categoryName")
+        print("Nro\tcategory_table")
+        for categoria in category_table:
+            if market_product_table[0][0]==category_table[0][0]:
+                productName=category_table[1]
+        self.__categoryId=input(f"Modifique la categoría {productName}. Ingrese un número: ") or market_product_table[0][0]
+        db.update("market_product_table","productName",f"'{self.__productName}'",f"productId={productId}")
+        db.update("market_product_table","unitCost",f"'{self.__unitCost}'",f"productId={productId}")
+        db.update("market_product_table","productStock",f"'{self.__productStock}'",f"productId={productId}")
+        db.update("market_product_table","productDescription",f"'{self.__productDescription}'",f"productId={productId}")
+        db.close()
 
     def deleteProduct(self,productId):
         db=sqlite3.Databases("supermark.db")
@@ -85,8 +102,12 @@ class Product:
         db.close()
 
     def listProduct(self,productId):
-    #HACER
-    db.close()
+        db=sqlite3.Databases("supermark.db")
+        db.cursor.execute("""SELECT P.productId,c.name AS category, p.productName,p.unitCost,p.productStock,p.productDescription
+                            FROM market_product_table
+                            INNER JOIN category_table
+                            ON p.categoryId = c.categoryId""")
+        db.close()
 
     def selectProduct(self,productId):
         db=sqlite3.Databases("supermark.db")
